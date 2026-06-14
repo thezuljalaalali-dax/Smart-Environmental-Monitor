@@ -1,2 +1,19 @@
-# Portable-Smart-Temperature-Measuring-device
-Portable Smart Temperature Measuring device. A real-time embedded system simulation built in Wokwi using C++ (Arduino). It utilizes an ESP32 microcontroller to read ambient data from a DHT22/11 temperature and humidity sensor, displaying the processed results on a 16x2 I2C LCD using Adafruit DHT and LiquidCrystal I2C libraries.
+Smart Environmental Monitor
+
+Objective:
+To design and simulate a real-time embedded system capable of reading, processing, and displaying ambient environmental data using an ESP32 microcontroller.
+
+Hardware & Components:
+Microcontroller: ESP32 Development Board
+Sensor: DHT22 (or DHT11) Temperature and Humidity Sensor
+Display: 16x2 Character LCD with an I2C Backpack
+
+Software & Libraries:
+Language: C++ (Arduino Framework)
+Simulation Environment: Wokwi IoT Simulator
+Dependencies: Adafruit DHT Sensor Library, LiquidCrystal I2C
+
+System Architecture & Functionality:
+Data Acquisition: The ESP32 is programmed to query the DHT22 sensor every 2 seconds via a single digital data line (GPIO 13), ensuring stable timing for the sensor's protocol.
+Processing & Error Handling: The microcontroller extracts the raw humidity percentage and Celsius temperature values. The execution loop includes integrated error handling (isnan checks) to immediately flag physical wire disconnections or protocol mismatches.
+Data Output: Processed telemetry is transmitted simultaneously to two interfaces: it streams to a Serial Monitor for backend debugging and is formatted and pushed via the I2C protocol (SDA/SCL pins) to a local LCD screen for real-time user visualization.
